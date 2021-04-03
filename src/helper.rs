@@ -12,12 +12,12 @@ mod helper {
         max_frame_time: f64,
         mut update: U,
         mut render: R,
-    ) -> GameLoop<G, Time, ()>
+    ) -> GameLoop<G, Time>
     where
-        U: FnMut(&mut GameLoop<G, Time, ()>),
-        R: FnMut(&mut GameLoop<G, Time, ()>),
+        U: FnMut(&mut GameLoop<G, Time>),
+        R: FnMut(&mut GameLoop<G, Time>),
     {
-        let mut game_loop = GameLoop::new(game, updates_per_second, max_frame_time, ());
+        let mut game_loop = GameLoop::new(game, updates_per_second, max_frame_time);
 
         while game_loop.next_frame(&mut update, &mut render) {}
 
